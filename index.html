@@ -6,91 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://static.spearly.com/js/v2/spearly-cms.browser.js" defer></script>
-  <script>
-    window.addEventListener('DOMContentLoaded',()=>{
-      const t=document.querySelectorAll(':not(:defined)');for(const e of t) {
-        e.style.visibility="hidden";
-      }; window.spearly.config.AUTH_KEY="SaVvBIiSe3EQ2hq-zLp7SlKuSrTIWh-P_RsjC1b8Jac"
+  <script>window.addEventListener('DOMContentLoaded',()=>{
+    const t=document.querySelectorAll(':not(:defined)');
+    for(const e of t) {
+      e.style.visibility="hidden";
+    };
+    window.spearly.config.AUTH_KEY="RGCaZixzI7pgdILZ5rTp1ApRe91aVYktowpGb-h-nvY"
     },{once:true})
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://static.spearly.com/css/spearly-richtext.min.css" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <style>
     ul {
       list-style: none;
     }
-    a {
-        text-decoration: none;
-    }
-    .contents1 {
-        margin-left: 0px;
-    }
-    .contents2 {
-        margin-left: 15px;
-    }
-    .contents3 {
-        margin-left: 30px;
-    }
-    .contents4 {
-        margin-left: 45px;
-    }
-    .contents5 {
-        margin-left: 60px;
-    }
-    .contents6 {
-        margin-left: 75px;
-    }
+
   </style>
 </head>
 
 <body class="container">
   <div class="row">
     <div class="col-md-3">
-      <details id="table-of-content" open>
-          <summary>Table of Contents</summary>
-      </details>
+      <div id="toc" class="l-toc">
+        <!-- <cloud-tutorial-list>
+          <a>{%= cloud-tutorial_title %}</a>
+        </cloud-tutorial-list> -->
+      </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 toc-contents">
       <h1>Spearly Cloud</h1>
-      <c-tutorial-list>
-        <h1>{%= c-tutorial_title %}</h1>
-        <p>{%= c-tutorial_content %}</p>
-      </c-tutorial-list>
+      <cloud-tutorial-list>
+        <h1>{%= cloud-tutorial_title %}</h1>
+        <p>{%= cloud-tutorial_content %}</p>
+      </cloud-tutorial-list>
     </div>
   </div>
- <script>
-   document.addEventListener('DOMContentLoaded', () => {
-    const heads = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    if (heads && heads.length) {
-        let contents = '';
-        heads.forEach((head, i) => {
-            let className = '';
-            switch(head.localName) {
-                case "h1":
-                    className = `contents1`;
-                    break;
-                case "h2":
-                    className = `contents2`;
-                    break;
-                case "h3":
-                    className = `contents3`;
-                    break;
-                case "h4":
-                    className = `contents4`;
-                    break;
-                case "h5":
-                    className = `contents5`;
-                    break;
-                case "h6":
-                    className = `contents6`;
-                    break;
-            }
-            contents += `<li><a class="${className}" href="#head${i}">${head.textContent}</a></li>`;
-            head.innerHTML += `<a id="head${i}"></a>`;
-        })
-        document.querySelector('#table-of-content').innerHTML += `<ol>${contents}</ol>`;
-      }
-  });
- </script>
+<!-- 目次を作成する先 -->
+<!-- <script>
+  
+    alert('Button is clicked');
+
+    var i = 1;
+    $('h1').each(function(){
+        $(this).attr('id', 'style-h1-'+i);
+        i++;
+    });
+    var j = 2;
+    $('a').each(function(){
+        $(this).attr('href', '#style-h1-'+j);
+        j++;
+    });
+
+
+</script> -->
+
+
 </body>
 </html>
